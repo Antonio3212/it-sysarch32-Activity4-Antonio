@@ -31,9 +31,7 @@ function Register() {
       });
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("email", data.email);
-        navigate("/products");
+        navigate("/");
       } else {
         setAuthRes(data.message);
       }
