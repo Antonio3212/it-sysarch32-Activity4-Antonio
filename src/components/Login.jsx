@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { login_route } from "../api/routes.js";
+import { login_route } from "../api/routes";
 import ReactSVG from "../assets/react.svg";
+
 function Login() {
   const [formLogin, setFormLogin] = useState({
     email: "",
@@ -46,46 +47,54 @@ function Login() {
       <div className="side">
         <img className="image-absolute" src={ReactSVG} />
         <div className="desc-relative">
-          <label className="big-header font-poppins">Activity 4</label>
-          <label className="big-subheader font-poppins text-gray">
+          <label className="big-header font-poppins text-white">Activity 4</label>
+          <label className="big-subheader font-poppins text-gray-300">
             React + API
           </label>
         </div>
       </div>
-      <div className="main">
-        <label className="font-header font-poppins font-bold mb-3">Login</label>
-        <form onSubmit={handleSubmission}>
-          <input
-            type="email"
-            name="email"
-            placeholder="email"
-            value={formLogin.email}
-            onChange={handleInputs}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formLogin.password}
-            onChange={handleInputs}
-            required
-          />
-          {authRes && (
-            <label className="text-red text-center font-poppins">
-              {authRes}
-            </label>
-          )}
-          <button className="font-poppins" type="submit">
+      <div className="main bg-white">
+        <div className="form-container">
+          <label className="form-label font-header font-poppins font-bold mb-3 text-gray-800">
             Login
-          </button>
-          <Link
-            to="/register"
-            className="text-center td-none font-poppins mt-2"
-          >
+          </label>
+          <form onSubmit={handleSubmission} className="form">
+            <input
+              type="email"
+              name="email"
+              placeholder="email"
+              value={formLogin.email}
+              onChange={handleInputs}
+              required
+              className="input-field border border-gray-300 p-2 mb-2 rounded"
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formLogin.password}
+              onChange={handleInputs}
+              required
+              className="input-field border border-gray-300 p-2 mb-4 rounded"
+            />
+            {authRes && (
+              <label className="form-error text-red text-center font-poppins">
+                {authRes}
+              </label>
+            )}
+            <button className="form-button font-poppins bg-blue-500 text-white p-2 rounded">
+              Login
+            </button>
+          </form>
+          <Link to="/register" className="form-link font-poppins text-blue-500 mt-4">
             Register Here
           </Link>
-        </form>
+        </div>
+      </div>
+      <div className="footer">
+        <p className="text-gray-600 text-center mt-4">
+          &copy; {new Date().getFullYear()} Activity 4 - React + API
+        </p>
       </div>
     </div>
   );

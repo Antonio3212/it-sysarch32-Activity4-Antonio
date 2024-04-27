@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="container">
-        <label className="logo font-poppins">Activity 4: React + API</label>
+        <label className="logo font-poppins"> React + API</label>
         <ul className="nav-links">
           <li>
             <Link to="/products" className="font-poppins">
